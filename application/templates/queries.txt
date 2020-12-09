@@ -1,0 +1,28 @@
+
+>>> User.objects.create(name="Grumpy Cat", email="sirgrumpy@mad.com", age=5, location="Los Angeles")
+<User: User object (1)>
+>>> User.objects.create(name="Stitch", email="stitch@hello.com", age=23, location="Hawaii")
+<User: User object (2)>
+>>> print(User)
+<class 'application.models.User'>
+>>> grumpy = User.objects.create(name="Grumpy Cat", email="sirgrumpy@mad.com", age=5, location="Los Angeles")
+>>> stitch = User.objects.create(name="Stitch", email="stitch@hello.com", age=23, location="Hawaii")
+>>> print(grumpy.name)
+Grumpy Cat
+>>> post1 = Post.objects.create(content="Hellooo!", user=grumpy, posts="my posts")
+>>> print(post1.content)
+Hellooo!
+>>> post2 = = Post.objects.create(content="I'm hungry!", user=stitch, posts="my posts")
+  File "<console>", line 1
+    post2 = = Post.objects.create(content="I'm hungry!", user=stitch, posts="my posts")
+            ^
+SyntaxError: invalid syntax
+>>> post2 = Post.objects.create(content="I'm hungry!", user=stitch, posts="my posts")
+>>> print(post2.user)
+User object (4)
+>>> print(post2.user.name)
+Stitch
+>>> comment1 = Comment.objects.create(content="this is a comment", user=stitch, post=post1)
+>>> print(comment1.user)
+User object (4)
+>>> print(comment1.user.name)
